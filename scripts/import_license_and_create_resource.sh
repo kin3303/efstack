@@ -34,3 +34,13 @@ if [ ! -f /opt/electriccloud/electriccommander/conf/insight_ready ]; then
   touch /opt/electriccloud/electriccommander/conf/insight_ready
 fi
 
+if [ ! -f /opt/electriccloud/electriccommander/conf/db_ready ]; then
+  ectool setDatabaseConfiguration \
+    --databaseType mysql \
+    --databaseName ecdb \
+    --userName ecdb \
+    --password ecdb \
+    --hostName db \
+    -- port 3306
+  touch /opt/electriccloud/electriccommander/conf/db_ready
+fi
