@@ -6,10 +6,10 @@ export PATH=$PATH:/opt/electriccloud/electriccommander/bin
 ectool login admin changeme
 
 if [ ! -f /opt/electriccloud/electriccommander/conf/license_ready ]; then
-  ectool importLicenseData /opt/electriccloud/electriccommander/conf/license.xml 
+  ectool ./license.xml 
   ectool setProperty "/server/settings/ipAddress" "haproxy"
-  ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://haproxy:61613"
-  ectool setProperty "/server/settings/stompSecure" "true"
+  #ectool setProperty "/server/settings/stompClientUri" "stomp+ssl://haproxy:61613"
+  #ectool setProperty "/server/settings/stompSecure" "true"
   touch /opt/electriccloud/electriccommander/conf/license_ready
 fi
 
