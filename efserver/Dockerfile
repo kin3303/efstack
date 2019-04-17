@@ -5,7 +5,7 @@ ARG EFLOW_INSTALLER
 
 ADD ${EFLOW_INSTALLER} /tmp/
 RUN chmod +x /tmp/${EFLOW_INSTALLER}
-RUN /tmp/${EFLOW_INSTALLER}  --mode silent --installServer --unixServerUser ubuntu --unixServerGroup ubuntu --unixAgentUser ubuntu --unixAgentGroup ubuntu
+RUN /tmp/${EFLOW_INSTALLER}  --mode silent --installServer --installDatabase --unixServerUser ubuntu --unixServerGroup ubuntu --unixAgentUser ubuntu --unixAgentGroup ubuntu
 RUN rm -f /tmp/${EFLOW_INSTALLER}
 
 COPY ./mysql-connector-java.jar /opt/electriccloud/electriccommander/server/lib/mysql-connector-java.jar
